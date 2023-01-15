@@ -18,7 +18,7 @@ WSKLP_KT=""
 
 PART_OF_HTML=$(curl -s https://portofklaipeda.lt/uostas/oro-salygos/ | grep -Ezo 'port_weather_header_title.*port_weather_wind_speed_chart_title'| sed '1,14d;25,60d')
 #| sed -r 's/\s+//g'
-WIND_DIR_LYKLP=$(echo "$PART_OF_HTML" | head -n 1 - | awk '{ printf("%.0f%s", $1, $2) }')
+WIND_DIR_LYKLP=$(echo "$PART_OF_HTML" | awk '{ printf("%.0f%s", $1, $2); exit }')
 WIND_SPEED_LYKLP=$(echo "$PART_OF_HTML" | tail -n 1 - | sed -r 's/\s+//g')
 WSKLP_NUM=$(echo "${WIND_SPEED_LYKLP%???}")
 #echo "$WSKLP_NUM"
