@@ -16,7 +16,7 @@ PART_OF_HTML=$(curl -s https://portofklaipeda.lt/uostas/oro-salygos/ | grep -Ezo
 WIND_SPEED_LYKLP=$(echo "$PART_OF_HTML" | tail -n 1 - | sed -r 's/\s+//g')
 
 {
-    read WIND_DIR_LYKLP
+    read WIND_DIR_LYKLP UNITS
 } <<< $PART_OF_HTML
 
 WSKLP_NUM=$(echo "${WIND_SPEED_LYKLP%???}")
