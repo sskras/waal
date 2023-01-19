@@ -11,7 +11,7 @@ WSKLP_KT=""
 #FULL_HTML=$(wget -q --output-document - https://portofklaipeda.lt/uostas/oro-salygos/ | tr -d '\000')
 #TMP=$(echo "$FULL_HTML" )
 
-PART_OF_HTML=$(curl -s https://portofklaipeda.lt/uostas/oro-salygos/ | grep -Ezo 'port_weather_header_title.*port_weather_wind_speed_chart_title'| sed -n '15p; 24p')
+PART_OF_HTML=$(curl -s https://portofklaipeda.lt/uostas/oro-salygos/ | grep -zo 'port_weather_header_title.*port_weather_wind_speed_chart_title'| sed -n '15p; 24p')
 #| sed -r 's/\s+//g'
 
 {
