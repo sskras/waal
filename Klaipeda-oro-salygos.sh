@@ -3,7 +3,6 @@
 MS_CONVERSION_KT=1.94
 
 FULL_HTML=$(curl -s https://portofklaipeda.lt/uostas/oro-salygos/)
-PART_OF_HTML=$(curl -s https://portofklaipeda.lt/uostas/oro-salygos/ | grep -zo 'port_weather_header_title.*port_weather_wind_speed_chart_title')
 
 [[ $FULL_HTML =~ (port_weather_header_title.*port_weather_wind_speed_chart_title) ]] || exit
 
