@@ -14,8 +14,8 @@ FULL_HTML=$(curl -s $URL) 2>/dev/null
 while read LINE
 do
     (( LINE_NUM++ ))
-    [ $LINE_NUM = 15 ] && read WIND_DIR_LYKLP   UNITS <<< "$LINE"
-    [ $LINE_NUM = 24 ] && read WIND_SPEED_LYKLP UNITS <<< "$LINE"
+    [ $LINE_NUM = 15 ] && read WIND_DIR_LYKLP   UNITS <<< $LINE
+    [ $LINE_NUM = 24 ] && read WIND_SPEED_LYKLP UNITS <<< $LINE
 done <<< ${BASH_REMATCH[@]}
 
 WSKLP_KT=$(bc <<< "scale=2; $WIND_SPEED_LYKLP * $MS_CONVERSION_KT")
