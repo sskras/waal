@@ -18,7 +18,7 @@ curl -s https://portofklaipeda.lt/uostas/oro-salygos/ | awk \
 
     NR == BLOCK_START + 23 {
         WIND_SPEED_LYKLP = $1 * '$MS_CONVERSION_KT'
-        printf("%.0f/%.0fkt\n", WIND_DIR_LYKLP, WIND_SPEED_LYKLP)
+        printf("%.0f/%.2fkt\n", WIND_DIR_LYKLP, WIND_SPEED_LYKLP)
         exit
     }
 '
