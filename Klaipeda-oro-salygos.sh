@@ -4,7 +4,11 @@ MS_CONVERSION_KT=1.94
 
 FULL_HTML=$(curl -s https://portofklaipeda.lt/uostas/oro-salygos/)
 
-[[ $FULL_HTML =~ (port_weather_header_title.*port_weather_wind_speed_chart_title) ]] || exit
+[[ $FULL_HTML =~ (port_weather_header_title.*port_weather_wind_speed_chart_title) ]] ||
+{
+    echo "$0: Pattern not found in the HTML"
+    exit 1
+}
 
 while read LINE
 do
