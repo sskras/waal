@@ -10,13 +10,14 @@ FULL_HTML=$(curl -s $URL) 2>/dev/null
     echo "$0: Pattern not found in the HTML"
     exit 1
 }
+PART_OF_HTML=${BASH_REMATCH[@]}
 
 while read LINE
 do
     (( LINE_NUM++ ))
     [ $LINE_NUM = 15 ] && read WIND_DIR_LYKLP   UNITS <<< $LINE
     [ $LINE_NUM = 24 ] && read WIND_SPEED_LYKLP UNITS <<< $LINE
-done <<< ${BASH_REMATCH[@]}
+done <<< $PART_OF_HTML
 
 WSKLP_KT=$(bc <<< "scale=2; $WIND_SPEED_LYKLP * $MS_CONVERSION_KT")
 
