@@ -13,4 +13,4 @@ done <<< $PART_OF_HTML
 
 WSKLP_KT=$(bc <<< "scale=2; $WIND_SPEED_LYKLP * $MS_CONVERSION_KT")
 
-echo "$WIND_DIR_LYKLP/${WSKLP_KT}kt"
+printf "%.0f/%.2fkt\n" $WIND_DIR_LYKLP $WIND_SPEED_LYKLP
