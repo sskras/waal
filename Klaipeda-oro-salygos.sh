@@ -19,7 +19,7 @@ PART_OF_HTML=$(curl -s https://portofklaipeda.lt/uostas/oro-salygos/ | grep -Ezo
     read WIND_SPEED_LYKLP UNITS
 } <<< $PART_OF_HTML
 
-WSKLP_KT=$(echo "scale=2; $WIND_SPEED_LYKLP * $MS_CONVERSION_KT" | bc)
+WSKLP_KT=$(bc <<< "scale=2; $WIND_SPEED_LYKLP * $MS_CONVERSION_KT")
 #echo "$WIND_DIR_LYKLP/$WIND_SPEED_LYKLP=${WSKLP_KT}kt"
 echo "$WIND_DIR_LYKLP/${WSKLP_KT}kt"
 #echo "$PART_OF_HTML"
